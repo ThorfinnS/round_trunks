@@ -15,7 +15,9 @@ local trees={
 
 local trees2 = {}
 
-for _,tree in pairs(trees) do
+
+function register_round_trunk(tree)
+
 	local nodename, top = unpack(tree)
 
 	local oldnode = minetest.registered_nodes[nodename]
@@ -56,6 +58,11 @@ for _,tree in pairs(trees) do
 		}
 	})
 end
+
+for _,tree in pairs(trees) do
+	register_round_trunk(tree)
+end
+
 
 -- [[ This lbm should fix black trunks.
 minetest.register_lbm({
